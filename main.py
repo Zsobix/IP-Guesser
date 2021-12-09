@@ -8,13 +8,14 @@ if os.name != "posix":
 
 https_PoolManager = urllib3.PoolManager()
 
-def log(logging):
+def log(logging_ips):
 	logs = open('ips.txt', 'a')
-	logs.write(logging)
+	logs.write(logging_ips)
 	logs.close()
 
+def timeout():
+	time.sleep(65)
 while True:
-	time.sleep(0.3)
 	openips = open('ips.txt', 'r')
 	openips2 = openips.read()
 	ipnum1 = random.randint(0, 255)
@@ -31,6 +32,9 @@ while True:
 		openips.close()
 		exit()
 	r = https_PoolManager.request('GET', 'http://ip-api.com/csv/' + ip + '?fields=country,city')
+	responsecode = r.status
+	if responsecode == 429 or "429":
+		timeout()
 	location = r.data
 	location = location.decode(encoding='UTF-8')
 	if location == "":
