@@ -8,13 +8,13 @@ if os.name != "posix":
 
 https_PoolManager = urllib3.PoolManager()
 
-def log(logging_ips):
-	logs = open('ips.txt', 'a')
-	logs.write(logging_ips)
-	logs.close()
-
+def log(watlog):
+	asdasd = open('ips.txt', 'a')
+	asdasd.write(watlog)
+	asdasd.close()
 def timeout():
 	time.sleep(65)
+
 while True:
 	openips = open('ips.txt', 'r')
 	openips2 = openips.read()
