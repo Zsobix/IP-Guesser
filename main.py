@@ -46,8 +46,10 @@ while True:
 		exit()
 	print(ip)
 	print(location)
-	print('response code:\n')
-	print(responsecode)
+	print('response code:')
+	responsecode = str(responsecode)
+	print(responsecode + '\n')
+	responsecode = int(responsecode)
 	ip = ip + '\n'
 	log(ip)
 	openips.close()
