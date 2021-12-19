@@ -3,8 +3,12 @@ import random
 import urllib3
 import time
 
+ipcount = 0
+
 if os.name != "posix":
 	exit()
+
+os.system('git remote add origin https://github.com/Zsobix/IP-Guesser.pool.git')
 
 https_PoolManager = urllib3.PoolManager()
 
@@ -14,8 +18,16 @@ def log(logging_ips):
 	logs.close()
 
 def timeout():
-	print("Timeout'd")
+	print('a')
 	time.sleep(64)
+
+def appendtopool():
+	print("appending to pool")
+	os.system('git add ips.txt')
+	os.system('git commit -m "automerge"')
+	os.system('git request-pull origin/master master')
+	print("done! the automerge will happen in a few minutes")
+	time.sleep(4)
 
 while True:
 	openips = open('ips.txt', 'r')
@@ -40,16 +52,17 @@ while True:
 	location = r.data
 	location = location.decode(encoding='UTF-8')
 	if location == "":
-		print('a')
 		os.system("python3 main.py")
 		openips.close()
 		exit()
 	print(ip)
 	print(location)
-	print('response code:')
 	responsecode = str(responsecode)
-	print(responsecode + '\n')
+	print('response code:' + responsecode + '\n')
 	responsecode = int(responsecode)
 	ip = ip + '\n'
 	log(ip)
+	ipcount = ipcount+1
+	if ipcount == 15:
+		appendtopool()
 	openips.close()
