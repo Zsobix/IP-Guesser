@@ -19,7 +19,7 @@ def log(logging_ips):
 	logs.close()
 
 def timeout():
-	print('a')
+	print('Timeout')
 	time.sleep(64)
 
 def clear():
