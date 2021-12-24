@@ -1,27 +1,28 @@
-b='\n'
-a='python3 performance.py'
-Z='a'
-Y='ips.txt'
-X=open
-Q='.'
-P=exit
-H=str
-D=print
-import os as A,random as E,urllib3 as R,time as N
-I=0
-if A.name!='posix':P()
-A.system('git remote add origin https://github.com/Zsobix/IP-Guesser.pool.git')
-S=R.PoolManager()
-def T(logging_ips):A=X(Y,Z);A.write(logging_ips);A.close()
-def U():D(Z);N.sleep(64)
-def V():D('appending to pool');A.system('git commit -m "automerge"');A.system('git request-pull origin/master master');D('done! the automerge will happen in a few minutes');N.sleep(4)
+c='\n'
+b='python3 main.py'
+a='ips.txt'
+Z=open
+R='.'
+Q=exit
+J=str
+A=print
+from os import name as S,system as C
+import sys,random as G,urllib3 as T,time as B
+K=0
+if S!='posix':Q()
+C('git remote add origin https://github.com/Zsobix/IP-Guesser.pool.git')
+U=T.PoolManager()
+def V(logging_ips):A=Z(a,'a');A.write(logging_ips);A.close()
+def W():A('Timeout');B.sleep(64)
+def D():C('clear')
+def X():A('appending to pool');C('git add ips.txt');C('git commit -m "automerge"');C('git request-pull origin/master master');D();A('Appending [.]');B.sleep(0.1);D();A('Appending [..]');B.sleep(0.1);D();A('Appending [...]');B.sleep(0.1);D();A('Appending [....]');B.sleep(0.1);D();A('Appending [.....]');B.sleep(0.1);D();A('Appending [......]');B.sleep(0.1);A('done! the automerge will happen in a few minutes');B.sleep(4)
 while True:
-	F=X(Y,'r');W=F.read();J=E.randint(0,255);K=E.randint(0,255);L=E.randint(0,255);M=E.randint(0,255);J=H(J);K=H(K);L=H(L);M=H(M);B=J+Q+K+Q+L+Q+M
-	if B in W:A.system(a);F.close();P()
-	O=S.request('GET','http://ip-api.com/csv/'+B+'?fields=country,city');C=O.status
-	if C==429 or'429':U()
-	G=O.data;G=G.decode(encoding='UTF-8')
-	if G=='':A.system(a);F.close();P()
-	D(B);D(G);C=H(C);D('response code:'+C+b);C=int(C);B=B+b;T(B);I=I+1
-	if I==15:V()
-	F.close()
+	H=Z(a,'r');Y=H.read();L=G.randint(0,255);M=G.randint(0,255);N=G.randint(0,255);O=G.randint(0,255);L=J(L);M=J(M);N=J(N);O=J(O);E=L+R+M+R+N+R+O
+	if E in Y:C(b);H.close();Q()
+	P=U.request('GET','http://ip-api.com/csv/'+E+'?fields=country,city');F=P.status
+	if F==429 or'429':W()
+	I=P.data;I=I.decode(encoding='UTF-8')
+	if I=='':C(b);H.close();Q()
+	A(E);A(I);F=J(F);A('response code:'+F+c);F=int(F);E=E+c;V(E);K=K+1
+	if K==150:X()
+	H.close()
