@@ -2,7 +2,6 @@
 
 from os import name as sysname
 from os import system as terminal
-import sys
 import random
 import urllib3
 import time
