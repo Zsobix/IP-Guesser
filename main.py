@@ -1,5 +1,3 @@
-#!/bin/python3
-
 from os import name as sysname
 from os import system as terminal
 import random
@@ -34,51 +32,6 @@ def servertimeout():
 
 def clear():
 	terminal("clear")
-
-def append(ipcount):
-	print("appending to pool")
-	terminal('git add ips.txt')
-	terminal('git commit -m "automerge"')
-	terminal('git request-pull origin/master master')
-	clear()
-	print("Appending [.]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [..]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [...]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [....]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [.....]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [......]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [.......]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [........]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [.........]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [..........]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [...........]")
-	time.sleep(0.2)
-	clear()
-	print("Appending [............]")
-	time.sleep(0.2)
-	print("done! the automerge will happen in a few minutes")
-	ipcount = 0
-
 while True:
 	openips = open('ips.txt', 'r')
 	openips2 = openips.read()
@@ -92,20 +45,36 @@ while True:
 	ipnum4 = str(ipnum4)
 	ip = ipnum1 + "." + ipnum2 + "." + ipnum3 + "." + ipnum4
 	if ip in openips2:
+		terminal("python main.py")
+		openips.close()
+		exit()
+	r = https_PoolManager.request('GET', 'http://ip-api.com/csv/' + ip + '?fields=country,city')
+	responsecode = r.status
+	if responsecode == 429 or "429":
+		try:
+			print(ip)
+			details = handler.getDetails(ip)
+			print(details.country + ', ' + details.city)
+			print("used server: IP-Info")
+			time.sleep(1)
+		except:
+			print('')
+			terminal('python main.py')
+			exit()
+	location = r.data
+	location = location.decode(encoding='UTF-8')
+	if location == "":
 		terminal("python3 main.py")
 		openips.close()
 		exit()
-	try:
-		print(ip)
-		details = handler.getDetails(ip)
-		print(details.country + ', ' + details.city)
-	except:
-		print('')
-		terminal('python3 main.py')
-		exit()
+	print(ip)
+	print(location)
+	responsecode = str(responsecode)
+	print('response code:' + responsecode + '\n')
+	if responsecode == "200" or "429":
+		print("used server: ip-api")
+	responsecode = int(responsecode)
 	ip = ip + ',\n'
 	log(ip)
-	if ipcount <= 150: 
-		ipcount = 0
-	ipcount = ipcount+1
+	time.sleep(1)
 	openips.close()
