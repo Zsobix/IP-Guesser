@@ -1,4 +1,3 @@
-from os import name as sysname
 from os import system as terminal
 import random
 import urllib3
@@ -11,9 +10,6 @@ acc_token_bytes = base64.b64decode(acc_token_b64)
 acc_token = str(acc_token_bytes, "utf-8")
 ipcount = 0
 handler = ipinfo.getHandler(acc_token)
-if sysname != "posix":
-	exit()
-
 https_PoolManager = urllib3.PoolManager()
 
 def log(logging_ips):
