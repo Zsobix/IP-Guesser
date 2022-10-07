@@ -56,7 +56,6 @@ while True:
 			details = handler.getDetails(ip)
 			print(details.country + ', ' + details.city)
 			print("used server: IP-Info")
-			time.sleep(1)
 		except:
 			print('')
 			terminal('python main.py')
@@ -76,5 +75,4 @@ while True:
 	responsecode = int(responsecode)
 	ip = ip + ',\n'
 	log(ip)
-	time.sleep(1)
 	openips.close()
