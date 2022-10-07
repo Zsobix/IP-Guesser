@@ -1,14 +1,15 @@
 # IP-Guesser
+<br/>
+<h2>Installation:</h1>
 
-<h3>WARNING: This only works on Linux</h3>
-<br />
-<h1>Installation:</h1>
+<p>Download Python from https://python.org</p>
+<p>Download this repository and extract it</p>
+<p>Open the terminal and run: python -m pip install ipinfo</p>
+<br/>
+<h2>Usage:</h2>
 
-*Depending on the distro the "packagemanager install" will be your package manager*
-<p>packagemanager install python3</p>
-<p>packagemanager install python3-pip</p>
-<p>packagemanager install git</p>
-<p>git clone https://github.com/Zsobix/IP-Guesser.git</p>
-<p>cd IP-Guesser</p>
-<p>pip install -r requirements.txt</p>
-<p>python3 main.py</p>
+*Make sure that your terminal is in the directory that has the files*
+<p> In the terminal run this command: python main.py</p>
+<br/>
+<h2>How to contribute the ips that you generated:</h2>
+<p>Make a pull request using this guide: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request</p>
