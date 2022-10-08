@@ -12,22 +12,11 @@ ipcount = 0
 handler = ipinfo.getHandler(acc_token)
 https_PoolManager = urllib3.PoolManager()
 
-def log(logging_ips):
+def log(ipvalid):
 	logs = open('ips.txt', 'a')
-	logs.write(logging_ips)
+	logs.write(ipvalid)
 	logs.close()
 
-def timeout():
-	print('Timeout')
-	time.sleep(320)
-
-def servertimeout():
-	print('Server Timeout')
-	print('Please wait')
-	time.sleep()
-
-def clear():
-	terminal("clear")
 while True:
 	openips = open('ips.txt', 'r')
 	openips2 = openips.read()
@@ -58,9 +47,9 @@ while True:
 			exit()
 	location = r.data
 	location = location.decode(encoding='UTF-8')
-	if location == "":
-		terminal("python3 main.py")
+	if location == "" or "\n":
 		openips.close()
+		terminal("python main.py")
 		exit()
 	print(ip)
 	print(location)
