@@ -21,6 +21,7 @@ except:
 acc_token = acc_token_input
 ipcount = 0
 handler = ipinfo.getHandler(acc_token)
+https_PoolManager = urllib3.PoolManager()
 
 def log(ipvalid):
 	logs = open('ips.txt', 'a')
