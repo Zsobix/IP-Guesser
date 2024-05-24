@@ -5,7 +5,7 @@
 
 import random
 import ipinfo
-acc_token = "882fb0a3c520e4"
+acc_token = "<YOUR IP-INFO API KEY HERE>"
 handler = ipinfo.getHandler(acc_token)
 ips = []
 while True:
